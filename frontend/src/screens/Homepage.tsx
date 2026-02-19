@@ -5,7 +5,7 @@ import Services from "../components/Services";
 import Contact from "../components/Contact";
 
 const Homepage = () => {
-  const whatsappLink = "https://wa.me/qr/I6P5AWU6GHDQE1";
+  const whatsappLink = "https://wa.me/2348055766461";
 
   const handleBookSession = () => {
     const contactSection = document.getElementById("contact");
@@ -31,7 +31,7 @@ const Homepage = () => {
       </section>
 
       <section id="contact" className="min-h-screen flex items-center justify-center bg-white">
-        <Contact whatsappLink={whatsappLink} />
+        <Contact />
       </section>
     </div>
   );
