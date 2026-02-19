@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/next";
 
 import Homepage from "./screens/Homepage.tsx";
 
