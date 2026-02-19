@@ -68,7 +68,7 @@ const Navbar = () => {
 
               {/* WhatsApp */}
               <Link
-                to="https://wa.me/qr/I6P5AWU6GHDQE1"
+                to="https://wa.me/2348055766461"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-gray-200 bg-white text-gray-700 text-sm font-semibold hover:border-blue-200 hover:bg-blue-50/50 hover:text-blue-700 transition-all duration-200 shadow-sm hover:shadow"

@@ -148,7 +148,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
               </button>
 
               <Link
-                to="https://wa.me/qr/I6P5AWU6GHDQE1"
+                to="https://wa.me/2348055766461"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3.5 bg-white text-gray-700 font-semibold rounded-xl border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all duration-300 text-sm sm:text-base flex items-center justify-center gap-2"

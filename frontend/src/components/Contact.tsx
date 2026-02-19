@@ -19,13 +19,11 @@ import { BsChatDots, BsLightningCharge, BsCheckCircle } from "react-icons/bs";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { RiCustomerService2Line } from "react-icons/ri";
 
-interface ContactProps {
-  whatsappLink: string;
-}
+
 
 const FORMSPREE_ACTION = "https://formspree.io/f/xvzbbpgb";
 
-const Contact = ({ whatsappLink }: ContactProps) => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     businessName: "",
@@ -358,7 +356,7 @@ const Contact = ({ whatsappLink }: ContactProps) => {
 
               {/* WhatsApp Button */}
               <Link
-                to={whatsappLink}
+                to='https://wa.me/2348055766461'
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn relative flex items-center justify-center gap-2 w-full px-6 py-3 bg-white text-blue-700 font-medium rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
