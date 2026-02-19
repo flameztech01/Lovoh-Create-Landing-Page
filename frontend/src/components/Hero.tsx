@@ -138,7 +138,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center md:items-start gap-3">
+            <div className="flex flex-col sm:flex-row items-center md:items-start gap-2">
               <button
                 onClick={onBookSession}
                 className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md text-sm sm:text-base flex items-center justify-center gap-2"
@@ -160,14 +160,14 @@ const Hero = ({ onBookSession }: HeroProps) => {
             </div>
           </div>
 
-          {/* Right Side - Image */}
-          <div className="flex-1 w-full md:w-1/2 flex justify-center md:justify-end mt-6 md:mt-0">
-            <div className="relative">
+          {/* Right Side - Image - MODIFIED FOR MOBILE */}
+          <div className="flex-1 w-full md:w-1/2 flex justify-center md:justify-end mt-0 md:mt-0">
+            <div className="relative w-full max-w-[430px] sm:max-w-sm md:max-w-md">
               {/* Decorative background */}
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-blue-200 rounded-[2.5rem] blur-2xl opacity-50"></div>
               
-              {/* Image container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
+              {/* Image container - Mobile: larger image, reduced spacing */}
+              <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
                 <img 
                   src="/picture1.png" 
                   alt="Brand Strategy"
@@ -178,7 +178,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
               </div>
 
               {/* Floating badge - positioned on image */}
-              <div className="absolute -bottom-3 -left-3 bg-white px-4 py-2 rounded-xl shadow-lg border border-blue-100">
+              <div className="absolute -bottom-2 -left-2 bg-white px-4 py-2 rounded-xl shadow-lg border border-blue-100">
                 <p className="text-xs font-semibold text-blue-600">Strategy Session</p>
               </div>
             </div>

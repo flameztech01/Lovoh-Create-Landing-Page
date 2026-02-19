@@ -9,7 +9,6 @@ import {
   FaClock,
   FaRegClock,
 } from "react-icons/fa";
-import { HiOutlineChatBubbleLeftRight,  } from "react-icons/hi2";
 import {
   MdOutlineMessage,
   MdOutlineSend,
@@ -129,7 +128,6 @@ const Contact = ({ whatsappLink }: ContactProps) => {
           </h2>
 
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto flex items-center justify-center gap-2">
-            <HiOutlineChatBubbleLeftRight className="w-5 h-5 text-blue-500" />
             Tell us about your brand and let's help you scale.
           </p>
         </div>

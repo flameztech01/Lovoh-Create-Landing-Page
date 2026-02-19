@@ -10,7 +10,7 @@ import {
   BsExclamationTriangle,
   BsCheckCircle 
 } from 'react-icons/bs';
-import { MdWarning } from 'react-icons/md';
+
 
 const Problem = () => {
   const painPoints = [
@@ -71,7 +71,6 @@ const Problem = () => {
           
           {/* Description with Icon */}
           <p className="text-lg text-gray-600 max-w-2xl mx-auto flex items-center justify-center gap-2">
-            <MdWarning className="w-5 h-5 text-blue-500 flex-shrink-0" />
             Most businesses hit a wall because they're missing the fundamentals. 
             Here's what's holding you back.
           </p>
