@@ -28,23 +28,17 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-blue-100">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-
           {/* Logo */}
-          <button
-            onClick={() => scrollToSection("home")}
-            className="group flex items-center gap-2"
-          >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-lg">L</span>
-            </div>
-            <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Lovoh Creates
-            </span>
+          <button onClick={() => scrollToSection("home")} className="group">
+            <img
+              src="/logo.png"
+              alt="Lovoh Creates Logo"
+              className="h-10 w-auto object-contain"
+            />
           </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-
             {/* Nav Links */}
             <div className="flex items-center bg-gray-50/80 rounded-2xl p-1 border border-gray-100">
               {navItems.map((item) => (
@@ -64,7 +58,6 @@ const Navbar = () => {
 
             {/* Desktop CTA Buttons */}
             <div className="flex items-center gap-3">
-              
               {/* Book Free Session */}
               <button
                 onClick={() => scrollToSection("contact")}
@@ -106,7 +99,6 @@ const Navbar = () => {
           }`}
         >
           <div className="bg-white rounded-2xl p-4 border border-blue-100 shadow-lg">
-
             {/* Mobile Nav Links */}
             <ul className="flex flex-col space-y-2">
               {navItems.map((item) => (
@@ -123,7 +115,6 @@ const Navbar = () => {
 
             {/* Mobile CTA Buttons */}
             <div className="mt-4 pt-4 border-t border-gray-200 flex flex-col gap-3">
-
               {/* Book Free Session */}
               <button
                 onClick={() => scrollToSection("contact")}
@@ -145,7 +136,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
       </div>
     </nav>
   );
