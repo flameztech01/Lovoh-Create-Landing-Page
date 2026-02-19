@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaWhatsapp, FaStar, FaUsers } from "react-icons/fa";
 import { BsChatDots, BsCalendarCheck } from "react-icons/bs";
-import { MdKeyboardArrowDown } from "react-icons/md";
+
 
 interface HeroProps {
   onBookSession: () => void;
@@ -214,7 +214,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
       </div>
 
       {/* Scroll Indicator - Blue & Silver */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" 
+      {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" 
            onClick={() => {
              const element = document.getElementById("problem");
              if (element) {
@@ -225,7 +225,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
           <div className="w-1.5 h-3 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full mt-2 animate-pulse"></div>
         </div>
         <MdKeyboardArrowDown className="w-4 h-4 text-blue-400 mt-1 mx-auto" />
-      </div>
+      </div> */}
     </section>
   );
 };
