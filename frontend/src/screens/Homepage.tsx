@@ -1,10 +1,11 @@
-import Navbar from '../components/Navbar.tsx';
-import Hero from '../components/Hero.tsx';
-import Problem from '../components/Problem.tsx';
-import Services from '../components/Services.tsx';
-import Contact from '../components/Contact.tsx';
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import Problem from "../components/Problem";
+import Services from "../components/Services";
+import Contact from "../components/Contact";
 
 const Homepage = () => {
+  const whatsappLink = "https://wa.me/qr/I6P5AWU6GHDQE1";
 
   const handleBookSession = () => {
     const contactSection = document.getElementById("contact");
@@ -18,7 +19,7 @@ const Homepage = () => {
       <Navbar />
 
       <section id="home">
-        <Hero onBookSession={handleBookSession} />
+        <Hero onBookSession={handleBookSession} whatsappLink={whatsappLink} />
       </section>
 
       <section id="problem" className="min-h-screen flex items-center justify-center bg-white">
@@ -30,7 +31,7 @@ const Homepage = () => {
       </section>
 
       <section id="contact" className="min-h-screen flex items-center justify-center bg-white">
-        <Contact />
+        <Contact whatsappLink={whatsappLink} />
       </section>
     </div>
   );
