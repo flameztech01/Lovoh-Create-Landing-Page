@@ -113,7 +113,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
               </span>
               <span className="text-xs sm:text-sm font-medium text-blue-700">
-                Only 5 Spots Available
+                Only 5 Spots Remaining
               </span>
             </div>
 
