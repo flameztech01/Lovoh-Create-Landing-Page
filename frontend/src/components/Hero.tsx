@@ -190,7 +190,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
 
               {/* Floating badge - positioned on image */}
               <div className="absolute -bottom-2 -left-2 bg-white px-4 py-2 rounded-xl shadow-lg border border-blue-100">
-                <p className="text-xs font-semibold text-blue-600">Strategys Session</p>
+                <p className="text-xs font-semibold text-blue-600">Strategy Session</p>
               </div>
             </div>
           </div>
