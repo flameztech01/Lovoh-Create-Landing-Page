@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { 
   FiTarget, 
   FiMessageCircle, 
-  FiEye, 
-  FiUsers, 
   FiBarChart2, 
   FiMonitor,
   FiArrowRight 
@@ -12,7 +10,6 @@ import {
   BsLightbulb, 
   BsMegaphone, 
   BsBrush, 
-  BsPeople, 
   BsGraphUp, 
   BsLaptop,
   BsCheckCircle,
@@ -21,6 +18,10 @@ import {
 } from 'react-icons/bs';
 import { MdDesignServices, MdOutlineSocialDistance } from 'react-icons/md';
 import { FaRegGem } from 'react-icons/fa';
+
+interface ServicesProps {
+  onCtaClick?: () => void;
+}
 
 const Services = ({ onCtaClick }: ServicesProps) => {
   const services = [
@@ -48,7 +49,7 @@ const Services = ({ onCtaClick }: ServicesProps) => {
     {
       name: "Social Media Management",
       description: "Build community that converts",
-      icon: FiUsers,
+      icon: MdOutlineSocialDistance,
       secondaryIcon: MdOutlineSocialDistance,
       color: "from-blue-600 to-blue-700"
     },
@@ -128,25 +129,20 @@ const Services = ({ onCtaClick }: ServicesProps) => {
                 key={index}
                 className="group relative bg-white rounded-2xl p-6 border border-blue-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
                 
-                {/* Icon Container - Blue & Silver */}
                 <div className="relative flex items-center gap-3 mb-4">
                   <div className={`w-12 h-12 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300`}>
                     <service.icon className="w-6 h-6 text-white" />
                   </div>
                   
-                  {/* Silver Decorative Element */}
                   <div className="flex-1 h-0.5 bg-gradient-to-r from-gray-200 to-transparent rounded-full" />
                   
-                  {/* Secondary Icon */}
                   <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center border border-gray-200 group-hover:border-blue-200 transition-colors">
                     <service.secondaryIcon className="w-4 h-4 text-blue-600" />
                   </div>
                 </div>
                 
-                {/* Content */}
                 <div className="relative">
                   <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
                     {service.name}
@@ -156,12 +152,10 @@ const Services = ({ onCtaClick }: ServicesProps) => {
                   </p>
                 </div>
 
-                {/* Hover Indicator */}
                 <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
                   <FiArrowRight className="w-5 h-5 text-blue-500" />
                 </div>
 
-                {/* Silver Number Badge */}
                 <div className="absolute top-4 right-4 w-6 h-6 bg-gray-100 rounded-full flex items-center justify-center border border-gray-200">
                   <span className="text-xs font-medium text-gray-500">{index + 1}</span>
                 </div>
@@ -189,23 +183,19 @@ const Services = ({ onCtaClick }: ServicesProps) => {
           </div>
         </div>
 
-        {/* Bottom CTA - Enhanced Blue Design */}
+        {/* Bottom CTA */}
         <div className="max-w-4xl mx-auto text-center mt-20">
           <div className="relative">
-            {/* Silver Glow Effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl blur-xl opacity-30"></div>
             
             <div className="relative bg-white rounded-2xl p-8 md:p-10 border border-blue-100 shadow-xl overflow-hidden">
-              {/* Decorative Elements */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-blue-50 rounded-full blur-2xl" />
               <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-50 rounded-full blur-2xl" />
               
-              {/* Icon */}
               <div className="inline-flex p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-6 shadow-lg">
                 <BsCalendarCheck className="w-8 h-8 text-white" />
               </div>
 
-              {/* Content */}
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 Ready to move into{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
@@ -217,7 +207,6 @@ const Services = ({ onCtaClick }: ServicesProps) => {
                 Book a free strategy session and let's map out your brand's next quarter.
               </p>
               
-              {/* CTA Button */}
               <Link
                 to="#contact"
                 onClick={(e) => {
@@ -237,7 +226,6 @@ const Services = ({ onCtaClick }: ServicesProps) => {
                 <FiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               
-              {/* Trust Indicators */}
               <div className="flex items-center justify-center gap-6 mt-6">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
@@ -257,6 +245,7 @@ const Services = ({ onCtaClick }: ServicesProps) => {
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

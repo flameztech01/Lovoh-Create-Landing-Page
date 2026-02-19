@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { 
   FiTarget, 
@@ -11,7 +10,7 @@ import {
   BsExclamationTriangle,
   BsCheckCircle 
 } from 'react-icons/bs';
-import { MdOutlineClear, MdWarning } from 'react-icons/md';
+import { MdWarning } from 'react-icons/md';
 
 const Problem = () => {
   const painPoints = [
@@ -144,26 +143,21 @@ const Problem = () => {
 
         {/* Transition/CTA Box - Enhanced Blue Design */}
         <div className="max-w-4xl mx-auto relative">
-          {/* Silver/Blue Gradient Border */}
           <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
           
           <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl p-8 md:p-10 text-center shadow-2xl overflow-hidden">
-            {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl" />
             
-            {/* Silver Sparkle Effects */}
             <div className="absolute inset-0">
               <div className="absolute top-10 left-10 w-2 h-2 bg-white/30 rounded-full animate-ping" />
               <div className="absolute bottom-10 right-10 w-3 h-3 bg-white/20 rounded-full animate-pulse" />
             </div>
 
-            {/* Icon */}
             <div className="inline-flex p-3 bg-white/10 rounded-xl backdrop-blur-sm mb-6 border border-white/20">
               <BsLightbulb className="w-8 h-8 text-white" />
             </div>
 
-            {/* Content */}
             <p className="text-xl md:text-2xl text-white font-medium leading-relaxed mb-8">
               We help brands define{' '}
               <span className="bg-white/20 px-3 py-1 rounded-lg font-semibold">strategy, messaging,</span> and{' '}
@@ -172,7 +166,6 @@ const Problem = () => {
               <span className="text-blue-100">so marketing actually works.</span>
             </p>
 
-            {/* CTA Button - White with Blue Hover */}
             <Link
               to="#contact"
               onClick={(e) => {
@@ -189,7 +182,6 @@ const Problem = () => {
               <FiArrowRight className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
             </Link>
 
-            {/* Trust Indicator */}
             <div className="mt-6 text-sm text-blue-200 flex items-center justify-center gap-4">
               <span className="flex items-center gap-1">
                 <span className="w-1 h-1 bg-blue-300 rounded-full"></span>
