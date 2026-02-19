@@ -40,11 +40,7 @@ const Problem = () => {
     }
   ];
 
-  const warningSigns = [
-    "Low conversion rates despite traffic",
-    "Customers can't explain what you do",
-    "High ad costs with poor ROI"
-  ];
+ 
 
   return (
     <section id="problem" className="relative py-20 md:py-28 bg-gradient-to-b from-white to-blue-50/30 overflow-hidden">
@@ -66,7 +62,7 @@ const Problem = () => {
           {/* Headline */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Why Most Brands
+              Why Many Brands
             </span>{' '}
             <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
               Struggle to Grow
@@ -123,7 +119,7 @@ const Problem = () => {
         </div>
 
         {/* Warning Signs Strip */}
-        <div className="max-w-4xl mx-auto mb-16">
+        {/* <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl p-6 border border-blue-100">
             <div className="flex flex-wrap items-center justify-center gap-6">
               {warningSigns.map((sign, index) => (
@@ -139,7 +135,7 @@ const Problem = () => {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Transition/CTA Box - Enhanced Blue Design */}
         <div className="max-w-4xl mx-auto relative">

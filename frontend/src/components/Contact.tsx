@@ -9,15 +9,14 @@ import {
   FaClock,
   FaRegClock,
 } from "react-icons/fa";
-import { HiOutlineChatBubbleLeftRight, HiOutlineShieldCheck } from "react-icons/hi2";
+import { HiOutlineChatBubbleLeftRight,  } from "react-icons/hi2";
 import {
   MdOutlineMessage,
   MdOutlineSend,
-  MdOutlineCheckCircle,
   MdOutlineErrorOutline,
   MdOutlineSchedule,
 } from "react-icons/md";
-import { BsChatDots, BsLightningCharge, BsCheckCircle, BsClock } from "react-icons/bs";
+import { BsChatDots, BsLightningCharge, BsCheckCircle } from "react-icons/bs";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { RiCustomerService2Line } from "react-icons/ri";
 
@@ -82,11 +81,6 @@ const Contact = ({ whatsappLink }: ContactProps) => {
     }
   };
 
-  const quickStats = [
-    { icon: BsClock, text: "24h response time", color: "text-blue-600" },
-    { icon: BsLightningCharge, text: "Instant WhatsApp", color: "text-blue-600" },
-    { icon: HiOutlineShieldCheck, text: "100% free consult", color: "text-blue-600" },
-  ];
 
   return (
     <section
@@ -136,24 +130,11 @@ const Contact = ({ whatsappLink }: ContactProps) => {
 
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto flex items-center justify-center gap-2">
             <HiOutlineChatBubbleLeftRight className="w-5 h-5 text-blue-500" />
-            Tell us about your brand and we'll respond within 24 hours.
+            Tell us about your brand and let's help you scale.
           </p>
         </div>
 
-        {/* Quick Stats Strip */}
-        <div className="max-w-3xl mx-auto mb-10">
-          <div className="flex flex-wrap items-center justify-center gap-6 bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-blue-100 shadow-sm">
-            {quickStats.map((stat, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <stat.icon className={`w-5 h-5 ${stat.color}`} />
-                <span className="text-sm font-medium text-gray-700">{stat.text}</span>
-                {index < quickStats.length - 1 && (
-                  <div className="w-1 h-1 bg-gray-300 rounded-full ml-2" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+      
 
         {/* Contact Grid - Form & WhatsApp */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -259,7 +240,7 @@ const Contact = ({ whatsappLink }: ContactProps) => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  placeholder="+234 XXX XXX XXXX"
+                  placeholder="+234 XXX XXX XXXX (Call or Whatsapp)"
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all placeholder:text-gray-400"
                 />
               </div>
@@ -434,11 +415,7 @@ const Contact = ({ whatsappLink }: ContactProps) => {
               </div>
             </div>
 
-            {/* Trust Badge */}
-            <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-              <MdOutlineCheckCircle className="w-4 h-4 text-blue-500" />
-              <span>No spam, ever. We respect your inbox.</span>
-            </div>
+           
           </div>
         </div>
       </div>

@@ -227,11 +227,11 @@ const Services = ({ onCtaClick }: ServicesProps) => {
               </Link>
               
               <div className="flex items-center justify-center gap-6 mt-6">
-                <div className="flex items-center gap-2">
+                {/* <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
                   <span className="text-xs text-gray-500">No commitment</span>
-                </div>
-                <div className="w-px h-4 bg-gray-300"></div>
+                </div> */}
+                {/* <div className="w-px h-4 bg-gray-300"></div> */}
                 <div className="flex items-center gap-2">
                   <BsClock className="w-4 h-4 text-blue-500" />
                   <span className="text-xs text-gray-500">30-minute strategy session</span>

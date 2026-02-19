@@ -1,8 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FaWhatsapp, FaStar, FaUsers } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import { BsChatDots, BsCalendarCheck } from "react-icons/bs";
-
 
 interface HeroProps {
   onBookSession: () => void;
@@ -53,7 +52,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particles.forEach((particle) => {
         particle.x += particle.speedX;
         particle.y += particle.speedY;
@@ -121,18 +120,20 @@ const Hero = ({ onBookSession }: HeroProps) => {
             Is Your Brand Ready for
             <span className="relative whitespace-nowrap">
               <span className="relative z-10 bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
-                {" "}Q2 2026?
+                {" "}
+                Q2 2026?
               </span>
               <span className="absolute bottom-2 left-0 w-full h-3 bg-blue-200/50 -z-0 rounded-lg"></span>
             </span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-5 md:mb-5 max-w-3xl mx-auto leading-relaxed">
             If your messaging isn't clear, your marketing won't convert.
             <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-blue-700 to-blue-600 bg-clip-text text-transparent font-semibold">
-              Let's refine your brand strategy before you spend another Budget on advertising.
+              Let's refine your brand strategy before you spend another Budget
+              on advertising.
             </span>
           </p>
 
@@ -150,7 +151,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
             </button>
 
             <Link
-              to='https://wa.me/qr/I6P5AWU6GHDQE1'
+              to="https://wa.me/qr/I6P5AWU6GHDQE1"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative w-full sm:w-auto px-8 py-4 bg-white text-gray-700 font-semibold rounded-xl border-2 border-blue-200 hover:border-blue-300 hover:bg-blue-50/50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden shadow-sm"
@@ -164,7 +165,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
           </div>
 
           {/* Social Proof / Stats - Silver/Blue */}
-          <div className="mt-12 pt-8 border-t border-blue-100">
+          {/* <div className="mt-12 pt-8 border-t border-blue-100">
             <div className="flex flex-wrap items-center justify-center gap-8 text-sm">
               <div className="flex items-center gap-2 bg-gray-50/80 px-4 py-2 rounded-full border border-gray-200">
                 <div className="flex -space-x-2">
@@ -194,10 +195,12 @@ const Hero = ({ onBookSession }: HeroProps) => {
               </div>
               <div className="flex items-center gap-2 bg-gray-50/80 px-4 py-2 rounded-full border border-gray-200">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-gray-600 font-medium">Response within 1hr</span>
+                <span className="text-gray-600 font-medium">
+                  Response within 1hr
+                </span>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Trust Badges */}
           {/* <div className="mt-8 flex items-center justify-center gap-6">
