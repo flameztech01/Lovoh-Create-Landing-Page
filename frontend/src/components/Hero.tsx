@@ -112,7 +112,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
             </span>
             <span className="text-xs md:text-sm font-medium text-blue-700">
-              Limited Spots Available for Q2 2026
+              Only 5 Spots Available for Q2 2026
             </span>
           </div>
 
@@ -132,7 +132,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
             If your messaging isn't clear, your marketing won't convert.
             <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-blue-700 to-blue-600 bg-clip-text text-transparent font-semibold">
-              Let's refine your brand strategy before you spend another naira on ads.
+              Let's refine your brand strategy before you spend another Budget on advertising.
             </span>
           </p>
 
