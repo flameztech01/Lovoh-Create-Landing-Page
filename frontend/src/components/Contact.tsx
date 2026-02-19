@@ -1,208 +1,393 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { 
+  FaWhatsapp, 
+  FaUser, 
+  FaBuilding, 
+  FaEnvelope, 
+  FaPhone, 
+  FaClock,
+  FaRegClock 
+} from 'react-icons/fa';
+import { 
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineShieldCheck 
+} from 'react-icons/hi2';
+import { 
+  MdOutlineMessage,
+  MdOutlineSend,
+  MdOutlineCheckCircle,
+  MdOutlineErrorOutline,
+  MdOutlineSchedule 
+} from 'react-icons/md';
+import { 
+  BsChatDots,
+  BsLightningCharge,
+  BsCheckCircle,
+  BsClock 
+} from 'react-icons/bs';
+import { IoMdCheckmarkCircle } from 'react-icons/io';
+import { RiCustomerService2Line } from 'react-icons/ri';
 
-const Contact = () => {
+interface ContactProps {
+  whatsappLink: string;
+}
+
+const Contact = ({ whatsappLink }: ContactProps) => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    name: '',
+    businessName: '',
     email: '',
     phone: '',
-    service: '',
-    message: ''
+    challenge: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add your form submission logic here
+    setIsSubmitting(true);
+    
+    // Simulate form submission - replace with actual API endpoint
+    try {
+      // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+      console.log('Form submitted:', formData);
+      setSubmitStatus('success');
+      setFormData({ name: '', businessName: '', email: '', phone: '', challenge: '' });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleWhatsApp = () => {
-    // Replace with your WhatsApp number
-    const phoneNumber = '1234567890'; // Add your WhatsApp number here
-    const message = encodeURIComponent("Hi Lovoh Creates! I'm interested in your services.");
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-  };
+  const quickStats = [
+    { icon: BsClock, text: "24h response time", color: "text-blue-600" },
+    { icon: BsLightningCharge, text: "Instant WhatsApp", color: "text-blue-600" },
+    { icon: HiOutlineShieldCheck, text: "100% free consult", color: "text-blue-600" }
+  ];
 
   return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Let's Work Together
-            </h2>
-            <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Fill out the form below and we'll get back to you within 24 hours.
-            </p>
+    <section id="contact" className="relative py-20 md:py-28 bg-gradient-to-b from-white to-blue-50/30 overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-72 h-72 bg-blue-200/10 rounded-full filter blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-blue-300/10 rounded-full filter blur-3xl" />
+        
+        {/* Silver Grid Pattern */}
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(37 99 235 / 0.03) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      <div className="relative container mx-auto px-4 md:px-6">
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          {/* Section Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/50 mb-6 shadow-sm">
+            <RiCustomerService2Line className="w-4 h-4 text-blue-600" />
+            <span className="text-xs md:text-sm font-medium text-blue-700 uppercase tracking-wider">
+              Get In Touch
+            </span>
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+            </span>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Side - Contact Info & Quick Actions */}
-            <div className="lg:col-span-1">
-              <div className="bg-gray-50 p-6 rounded-xl sticky top-24">
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">
-                  Quick Contact
-                </h3>
+          {/* Headline */}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              Let's
+            </span>{' '}
+            <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
+              Talk
+            </span>
+          </h2>
+          
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto flex items-center justify-center gap-2">
+            <HiOutlineChatBubbleLeftRight className="w-5 h-5 text-blue-500" />
+            Tell us about your brand and we'll respond within 24 hours.
+          </p>
+        </div>
 
-                {/* WhatsApp Quick Button */}
-                <button
-                  onClick={handleWhatsApp}
-                  className="w-full mb-6 p-4 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold flex items-center justify-center space-x-3 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
-                >
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.177.181-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
-                  </svg>
-                  <span>Chat with us on WhatsApp</span>
-                </button>
+        {/* Quick Stats Strip */}
+        <div className="max-w-3xl mx-auto mb-10">
+          <div className="flex flex-wrap items-center justify-center gap-6 bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-blue-100 shadow-sm">
+            {quickStats.map((stat, index) => (
+              <div key={index} className="flex items-center gap-2">
+                <stat.icon className={`w-5 h-5 ${stat.color}`} />
+                <span className="text-sm font-medium text-gray-700">{stat.text}</span>
+                {index < quickStats.length - 1 && (
+                  <div className="w-1 h-1 bg-gray-300 rounded-full ml-2" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
 
-                {/* Quick Info */}
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 text-gray-600">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <span>hello@lovohcreates.com</span>
+        {/* Contact Grid - Form & WhatsApp */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Contact Form */}
+          <div className="group relative bg-white rounded-2xl p-6 md:p-8 border border-blue-100 hover:border-blue-200 hover:shadow-xl transition-all duration-300">
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+            
+            {/* Header with Icon */}
+            <div className="relative flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                <MdOutlineMessage className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                Send us a message
+              </h3>
+              <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-200 to-transparent rounded-full" />
+            </div>
+
+            <form onSubmit={handleSubmit} className="relative space-y-5">
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="flex items-center gap-1 text-sm font-medium text-gray-700 mb-1">
+                  <FaUser className="w-3 h-3 text-blue-500" />
+                  Name <span className="text-blue-400">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="Your full name"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all placeholder:text-gray-400"
+                />
+              </div>
+
+              {/* Business Name */}
+              <div>
+                <label htmlFor="businessName" className="flex items-center gap-1 text-sm font-medium text-gray-700 mb-1">
+                  <FaBuilding className="w-3 h-3 text-blue-500" />
+                  Business Name
+                </label>
+                <input
+                  type="text"
+                  id="businessName"
+                  name="businessName"
+                  value={formData.businessName}
+                  onChange={handleChange}
+                  placeholder="Your business name"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all placeholder:text-gray-400"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="flex items-center gap-1 text-sm font-medium text-gray-700 mb-1">
+                  <FaEnvelope className="w-3 h-3 text-blue-500" />
+                  Email <span className="text-blue-400">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all placeholder:text-gray-400"
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label htmlFor="phone" className="flex items-center gap-1 text-sm font-medium text-gray-700 mb-1">
+                  <FaPhone className="w-3 h-3 text-blue-500" />
+                  Phone <span className="text-blue-400">*</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  placeholder="+234 XXX XXX XXXX"
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all placeholder:text-gray-400"
+                />
+              </div>
+
+              {/* Challenge Textarea */}
+              <div>
+                <label htmlFor="challenge" className="flex items-center gap-1 text-sm font-medium text-gray-700 mb-1">
+                  <BsChatDots className="w-3 h-3 text-blue-500" />
+                  What is your biggest marketing challenge?
+                </label>
+                <textarea
+                  id="challenge"
+                  name="challenge"
+                  value={formData.challenge}
+                  onChange={handleChange}
+                  rows={4}
+                  placeholder="Tell us what you're struggling with..."
+                  className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all resize-none placeholder:text-gray-400"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="group relative w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden shadow-md hover:shadow-lg"
+              >
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <MdOutlineSend className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </button>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <div className="flex items-center gap-2 p-3 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm">
+                  <IoMdCheckmarkCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                  <span>Thanks! We'll get back to you within 24 hours.</span>
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+                  <MdOutlineErrorOutline className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <span>Something went wrong. Please try again or WhatsApp us directly.</span>
+                </div>
+              )}
+            </form>
+          </div>
+
+          {/* WhatsApp Card & Quick Info */}
+          <div className="space-y-6">
+            {/* WhatsApp Card - Enhanced Blue Design */}
+            <div className="relative group bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl p-8 text-white overflow-hidden shadow-xl">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl" />
+              
+              {/* Silver Sparkle Effects */}
+              <div className="absolute inset-0">
+                <div className="absolute top-10 left-10 w-2 h-2 bg-white/30 rounded-full animate-ping" />
+                <div className="absolute bottom-10 right-10 w-3 h-3 bg-white/20 rounded-full animate-pulse" />
+              </div>
+
+              {/* Header */}
+              <div className="relative flex items-center gap-3 mb-6">
+                <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/20">
+                  <FaWhatsapp className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold flex items-center gap-2">
+                    Chat on WhatsApp
+                    <BsLightningCharge className="w-4 h-4 text-yellow-300" />
+                  </h3>
+                  <p className="text-blue-100 text-sm flex items-center gap-1">
+                    <FaRegClock className="w-3 h-3" />
+                    Usually replies within 1 hour
+                  </p>
+                </div>
+              </div>
+
+              <p className="relative text-blue-100 mb-6">
+                Prefer instant messaging? Reach out on WhatsApp for a faster response.
+              </p>
+
+              {/* WhatsApp Button */}
+              <Link
+                to={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/btn relative flex items-center justify-center gap-2 w-full px-6 py-3 bg-white text-blue-700 font-medium rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
+              >
+                <FaWhatsapp className="w-5 h-5 text-blue-600 group-hover/btn:scale-110 transition-transform" />
+                <span>Start WhatsApp Chat</span>
+                <BsChatDots className="w-4 h-4 text-blue-400 group-hover/btn:translate-x-1 transition-transform" />
+              </Link>
+
+              <p className="relative text-xs text-blue-200 text-center mt-4">
+                Click to open WhatsApp • No app needed on desktop
+              </p>
+            </div>
+
+            {/* Quick Info Card - Silver/White Design */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-blue-100 shadow-md">
+              <h4 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <MdOutlineSchedule className="w-5 h-5 text-blue-600" />
+                Response Times
+              </h4>
+              
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-gray-600 p-2 hover:bg-blue-50/50 rounded-lg transition-colors">
+                  <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <FaClock className="w-4 h-4 text-blue-600" />
                   </div>
-                  <div className="flex items-center space-x-3 text-gray-600">
-                    <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                    </svg>
-                    <span>+1 (555) 123-4567</span>
+                  <div>
+                    <span className="text-sm font-medium text-gray-900">Email/C Form</span>
+                    <p className="text-xs text-gray-500">Within 24 hours</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 text-gray-600 p-2 hover:bg-blue-50/50 rounded-lg transition-colors">
+                  <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <BsLightningCharge className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-gray-900">WhatsApp</span>
+                    <p className="text-xs text-gray-500">Instant (1 hour average)</p>
                   </div>
                 </div>
 
-                {/* Response Time Badge */}
-                <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                  <div className="flex items-center space-x-2 text-blue-700">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span className="font-semibold">⏱️ Response within 24 hours</span>
+                <div className="flex items-center gap-3 text-gray-600 p-2 hover:bg-blue-50/50 rounded-lg transition-colors">
+                  <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                    <BsCheckCircle className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <span className="text-sm font-medium text-gray-900">Free Consultation</span>
+                    <p className="text-xs text-gray-500">30-min strategy session</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side - Contact Form */}
-            <div className="lg:col-span-2">
-              <form onSubmit={handleSubmit} className="bg-gray-50 p-6 md:p-8 rounded-xl">
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Full Name */}
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      placeholder="Samuel Njoku"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  {/* Phone / WhatsApp */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone / WhatsApp *
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                      placeholder="+1 234 567 890"
-                    />
-                  </div>
-
-                  {/* Service Needed Dropdown */}
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Needed *
-                    </label>
-                    <select
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="creative-design">Creative Design</option>
-                      <option value="website-development">Website Development</option>
-                      <option value="app-development">App Development</option>
-                      <option value="digital-consultation">Digital Consultation</option>
-                      <option value="custom-solutions">Custom Solutions</option>
-                    </select>
-                  </div>
-
-                  {/* Message */}
-                  <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={4}
-                      className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                      placeholder="Tell us about your project..."
-                    />
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <div className="mt-6">
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
-                  >
-                    Send Message
-                  </button>
-                </div>
-
-                {/* Privacy Note */}
-                <p className="text-xs text-gray-500 text-center mt-4">
-                  By submitting this form, you agree to our privacy policy and consent to being contacted.
-                </p>
-              </form>
+            {/* Trust Badge */}
+            <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+              <MdOutlineCheckCircle className="w-4 h-4 text-blue-500" />
+              <span>No spam, ever. We respect your inbox.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
