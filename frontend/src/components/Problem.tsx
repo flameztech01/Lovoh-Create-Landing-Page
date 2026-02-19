@@ -62,7 +62,7 @@ const Problem = () => {
           {/* Headline */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Why Brands
+              Why Many Brands
             </span>{' '}
             <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent">
               Struggle With Marketing
@@ -117,24 +117,7 @@ const Problem = () => {
           ))}
         </div>
 
-        {/* Warning Signs Strip */}
-        {/* <div className="max-w-4xl mx-auto mb-16">
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50/50 rounded-2xl p-6 border border-blue-100">
-            <div className="flex flex-wrap items-center justify-center gap-6">
-              {warningSigns.map((sign, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 text-xs font-bold">{index + 1}</span>
-                  </div>
-                  <span className="text-sm text-gray-600">{sign}</span>
-                  {index < warningSigns.length - 1 && (
-                    <FiArrowRight className="w-4 h-4 text-gray-400 hidden sm:block" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div> */}
+       
 
         {/* Transition/CTA Box - Enhanced Blue Design */}
         <div className="max-w-4xl mx-auto relative">
@@ -180,11 +163,11 @@ const Problem = () => {
             <div className="mt-6 text-sm text-blue-200 flex items-center justify-center gap-4">
               <span className="flex items-center gap-1">
                 <span className="w-1 h-1 bg-blue-300 rounded-full"></span>
-                No commitment required
+                30-Minute Strategy Call
               </span>
               <span className="flex items-center gap-1">
                 <span className="w-1 h-1 bg-blue-300 rounded-full"></span>
-                30-minute strategy call
+                100% Free
               </span>
             </div>
           </div>

@@ -107,7 +107,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
           <div className="flex-1 w-full md:w-1/2 text-center md:text-left">
             
             {/* Badge */}
-            <div className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/50 mb-3 mt-17 shadow-sm">
+            {/* <div className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/50 mb-3 mt-17 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
@@ -115,11 +115,13 @@ const Hero = ({ onBookSession }: HeroProps) => {
               <span className="text-xs sm:text-sm font-medium text-blue-700">
                 Only 5 Spots Remaining
               </span>
-            </div>
+            </div> */}
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-              Is Your Brand <br className="hidden sm:block" />
+              Is Your <span className="relative z-10 bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
+                  Brand
+                </span> <br className="hidden sm:block" />
               Ready for{' '}
               <span className="relative whitespace-nowrap">
                 <span className="relative z-10 bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
@@ -130,12 +132,22 @@ const Hero = ({ onBookSession }: HeroProps) => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-lg mx-auto md:mx-0">
+            <p className="text-base sm:text-lg text-gray-600 mb-6 max-w-lg mx-auto md:mx-0 font-bold">
               If your messaging isn't clear, your marketing won't convert.{' '}
               <span className="block mt-2 bg-gradient-to-r from-blue-700 to-blue-600 bg-clip-text text-transparent font-semibold">
                 Let's refine your brand strategy before you spend another budget on advertising.
               </span>
             </p>
+
+             <div className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-blue-50 border border-blue-200/50 mb-3 shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+              </span>
+              <span className="text-xs sm:text-sm font-medium text-blue-700">
+                Only 5 Spots Remaining
+              </span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center md:items-start gap-2">
