@@ -363,7 +363,6 @@ const Contact = () => {
               >
                 <FaWhatsapp className="w-5 h-5 text-blue-600 group-hover/btn:scale-110 transition-transform" />
                 <span>Start WhatsApp Chat</span>
-                <BsChatDots className="w-4 h-4 text-blue-400 group-hover/btn:translate-x-1 transition-transform" />
               </Link>
 
               <p className="relative text-xs text-blue-200 text-center mt-4">

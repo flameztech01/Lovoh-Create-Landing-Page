@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
-import { BsChatDots, BsCalendarCheck } from "react-icons/bs";
+import { BsCalendarCheck } from "react-icons/bs";
 
 interface HeroProps {
   onBookSession: () => void;
@@ -155,7 +155,6 @@ const Hero = ({ onBookSession }: HeroProps) => {
               >
                 <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" />
                 Chat on WhatsApp
-                <BsChatDots className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
               </Link>
             </div>
           </div>
