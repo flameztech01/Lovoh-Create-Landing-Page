@@ -180,7 +180,7 @@ const Hero = ({ onBookSession }: HeroProps) => {
               {/* Image container - Mobile: larger image, reduced spacing */}
               <div className="relative w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50">
                 <img 
-                  src="/picture1.png" 
+                  src="/picture.png" 
                   alt="Brand Strategy"
                   className="w-full h-full object-cover"
                 />
